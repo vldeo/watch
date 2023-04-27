@@ -1,52 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Fractal Painter</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="script.js"></script>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>WebGL Fluid Experiment</title>
+	
+	<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+
+	
+	<script type="text/javascript" src="./GLFluid.js"></script>
+	
+	<script>
+		window.addEventListener ("touchmove", function (event) { event.preventDefault (); }, false);
+		if (typeof window.devicePixelRatio != 'undefined' && window.devicePixelRatio > 2) {
+			var meta = document.getElementById ("viewport");
+			meta.setAttribute ('content', 'width=device-width, initial-scale=' + (2 / window.devicePixelRatio) + ', user-scalable=no');
+		}
+	</script>
+	
+	<style>
+		html,body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+		#content { 
+			background: #000000;
+			width: 100%;
+			height: 100%;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			cursor: pointer;
+		}
+		
+	</style>
+
+	<!-- Icon Font -->
+	<link rel="stylesheet" type="text/css" href="iconfont.css">
+	<!-- Open Graph Meta -->
+	<meta property="og:title" content="WebGL Fluid Experiment" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://haxiomic.github.io/GPU-Fluid-Experiments/html5/" />
+	<meta property="og:image" content="http://haxiomic.github.io/GPU-Fluid-Experiments/html5/glfluid.jpg" />
+	<!-- / -->
+	<!-- Additional dat.GUI styling -->
+	<style>
+	/* green left border for selects */
+	.dg .cr.object{
+		border-left: 3px solid #5CB36D;
+	}
+
+	/* disabled row style */
+	.dg .cr.disabled{
+		border-left-color: #353535 !important;
+	}
+	.dg .cr input[disabled]{
+		background: none !important;
+		color: #8C8C8C !important;
+	}
+
+	/* new row type: link */
+	.dg .cr.link, .dg .cr.link .property-name, .dg .cr.link *{
+		cursor: pointer;
+	}
+
+	.dg .cr.link:hover{
+		background: #111;
+	}
+
+	.dg .cr.footer, .dg .cr.footer .property-name, .dg .cr.footer *{
+		font-size: 110%;
+	}
+
+	/* new row type: footer */
+	.dg .cr.footer{
+		color: #939699;
+		transition: color 0.2s;
+	}
+	.dg .cr.footer:hover{
+		color: #2FA1D6;
+		transition: color 0.2s;
+	}
+
+	/* row icon */
+	.dg .cr [class^="icon-"], [class*=" icon-"]{
+		font-size: 150%;
+		float: right;
+		text-align: center;
+		width: 27px;
+	}
+	</style>
+	<script>
 </head>
 <body>
-	<div id="welcome-screen">
-		<h1>Добро пожаловать в Fractal Painter!</h1>
-		<p>Здесь вы можете рисовать красивые фракталы и наслаждаться процессом.</p>
-		<button onclick="showDrawingWindow()">Начать рисование</button>
-	</div>
-	<div id="drawing-window">
-		<div id="fractal-type">
-			<h2>Выберите тип фрактала:</h2>
-			<select id="fractal-selector">
-				<option value="mandelbrot">Множество Мандельброта</option>
-				<option value="spiral">Живая спираль</option>
-				<option value="koch-curve">Кривая Коха</option>
-				<option value="koch-snowflake">Снежинка Коха</option>
-				<option value="serpinski-triangle">Треугольник Серпинского</option>
-				<option value="pythagoras-tree">Дерево Пифагора</option>
-			</select>
-		</div>
-		<div id="drawing-canvas">
-			<canvas id="canvas"></canvas>
-		</div>
-		<div id="drawing-controls">
-			<h2>Инструменты:</h2>
-			<div id="color-picker">
-				<h3>Цвет:</h3>
-				<input type="color" id="color-selector" value="#000000">
-			</div>
-			<div id="brush-size">
-				<h3>Размер кисти:</h3>
-				<input type="range" id="brush-size-selector" min="1" max="100" value="10">
-			</div>
-			<button onclick="clearCanvas()">Очистить холст</button>
-			<button onclick="saveImage()">Сохранить работу</button>
-		</div>
-	</div>
-	<div id="save-window">
-		<h2>Сохранить работу:</h2>
-		<label for="image-name">Название:</label>
-		<input type="text" id="image-name">
-		<label for="image-description">Описание:</label>
-		<textarea id="image-description"></textarea>
-		<button onclick="saveImage()">Сохранить</button>
-	</div>
+	
+	
+	<div id="content"></div>
+
+	<script type="text/javascript">
+		lime.embed ("content", 0, 0, "FFFFFF");
+	</script>
 </body>
 </html>
