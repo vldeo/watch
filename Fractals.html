@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Рисование фракталов</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fractal Drawing</title>
     <style>
-      /* Стили для холста */
       canvas {
         border: 1px solid black;
       }
     </style>
   </head>
-
   <body>
-    <h1>Рисование фракталов</h1>
-
-    <canvas id="canvas"></canvas> <!-- Холст для рисования -->
-
+    <h1>Fractal Drawing</h1>
+    <p>Use your mouse to draw!</p>
+    <canvas id="canvas" width="500" height="500"></canvas>
     <script>
-      // Код для рисования фракталов
-      const canvas = document.getElementById('canvas');
-      const ctx = canvas.getContext('2d');
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+      let lastX = 0;
+      let lastY = 0;
+      let hue = 0;
+      let drawing = false;
 
-      function drawFractal(x, y, size) {
-        if (size < 1) {
-          return;
-        }
-
+      function draw(e) {
+        if (!drawing) return;
+        ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
         ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(x + size, y);
-        ctx.lineTo(x + size, y + size);
-        ctx.lineTo(x, y + size);
-        ctx.lineTo(x, y);
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(e.offsetX, e.offsetY);
         ctx.stroke();
-
-        const newSize = size / 2;
-
-        drawFractal(x, y, newSize);
-        drawFractal(x + newSize, y, newSize);
-        drawFractal(x + newSize, y + newSize, newSize);
-        drawFractal(x, y + newSize, newSize);
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+        hue++;
+        if (hue >= 360) {
+          hue = 0;
+        }
       }
 
-      drawFractal(100, 100, 256);
+      canvas.addEventListener("mousedown", (e) => {
+        drawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+      });
+
+      canvas.addEventListener("mousemove", draw);
+
+      canvas.addEventListener("mouseup", () => drawing = false);
+      canvas.addEventListener("mouseout", () => drawing = false);
     </script>
   </body>
 </html>
