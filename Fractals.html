@@ -1,86 +1,39 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/addons/p5.dom.min.js"></script>
-    <style>
-      canvas {
-        display: block;
-        margin: 0 auto;
-      }
-    </style>
-  </head>
-  <body>
-    <div>
-      <label for="iterations">Iterations:</label>
-      <input type="range" id="iterations" min="0" max="10" value="5" />
-    </div>
-    <div>
-      <label for="angle">Angle:</label>
-      <input type="range" id="angle" min="0" max="360" value="60" />
-    </div>
-    <div>
-      <label for="scale">Scale:</label>
-      <input type="range" id="scale" min="0.1" max="1" step="0.01" value="0.5" />
-    </div>
-    <script>
-      let iterationsSlider, angleSlider, scaleSlider;
-      let iterations, angle, scale;
+// Создание ползунков
+let slider1, slider2;
 
-      function setup() {
-        let canvas = createCanvas(500, 500);
-        canvas.parent("canvas-container");
+function setup() {
+  createCanvas(400, 400);
+  
+  // Создание ползунков
+  slider1 = createSlider(1, 10, 1, 1);
+  slider1.position(20, 20);
+  
+  slider2 = createSlider(0, 255, 100, 1);
+  slider2.position(20, 50);
+}
 
-        iterationsSlider = createSlider(0, 10, 5, 1);
-        iterationsSlider.parent("iterations");
+function draw() {
+  background(220);
+  
+  // Получение значений ползунков
+  let iterations = slider1.value();
+  let colorValue = slider2.value();
+  
+  // Установка цвета заливки
+  fill(255, colorValue, 0);
+  
+  // Рисование фрактала
+  drawFractal(iterations, width/2, height-50, 100);
+}
 
-        angleSlider = createSlider(0, 360, 60, 1);
-        angleSlider.parent("angle");
-
-        scaleSlider = createSlider(0.1, 1, 0.5, 0.01);
-        scaleSlider.parent("scale");
-
-        iterationsSlider.changed(updateFractal);
-        angleSlider.changed(updateFractal);
-        scaleSlider.changed(updateFractal);
-
-        updateFractal();
-      }
-
-      function updateFractal() {
-        iterations = iterationsSlider.value();
-        angle = angleSlider.value();
-        scale = scaleSlider.value();
-
-        background(255);
-        stroke(0);
-        noFill();
-        drawFractal(width / 2, height / 2, 200, angle, iterations);
-      }
-
-      function drawFractal(x, y, size, angle, iterations) {
-        if (iterations == 0) {
-          ellipse(x, y, size, size);
-          return;
-        }
-
-        let new_size = size * scale;
-        let half_size = new_size / 2;
-        let angle1 = angle + random(-10, 10);
-        let angle2 = angle + random(-10, 10);
-
-        push();
-        translate(x, y);
-        rotate(radians(-angle1));
-        drawFractal(0, 0, new_size, angle, iterations - 1);
-        pop();
-
-        push();
-        translate(x, y);
-        rotate(radians(angle2));
-        drawFractal(0, 0, new_size, angle, iterations - 1);
-        pop();
-      }
-    </script>
-  </body>
-</html>
+function drawFractal(iterations, x, y, size) {
+  if (iterations == 0) {
+    square(x - size/2, y - size/2, size);
+  } else {
+    let newSize = size / 2;
+    drawFractal(iterations-1, x-newSize, y-newSize, newSize);
+    drawFractal(iterations-1, x+newSize, y-newSize, newSize);
+    drawFractal(iterations-1, x+newSize, y+newSize, newSize);
+    drawFractal(iterations-1, x-newSize, y+newSize, newSize);
+  }
+}
