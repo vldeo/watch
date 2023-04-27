@@ -1,49 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Fractal Drawing</title>
-    <style>
-      canvas {
-        border: 1px solid black;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Fractal Drawing</h1>
-    <p>Use your mouse to draw!</p>
-    <canvas id="canvas" width="500" height="500"></canvas>
-    <script>
-      const canvas = document.getElementById("canvas");
-      const ctx = canvas.getContext("2d");
-      let lastX = 0;
-      let lastY = 0;
-      let hue = 0;
-      let drawing = false;
+<head>
+	<title>Фракталы</title>
+	<style>
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="800" height="600"></canvas>
 
-      function draw(e) {
-        if (!drawing) return;
-        ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
-        ctx.beginPath();
-        ctx.moveTo(lastX, lastY);
-        ctx.lineTo(e.offsetX, e.offsetY);
-        ctx.stroke();
-        [lastX, lastY] = [e.offsetX, e.offsetY];
-        hue++;
-        if (hue >= 360) {
-          hue = 0;
-        }
-      }
+	<script>
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
 
-      canvas.addEventListener("mousedown", (e) => {
-        drawing = true;
-        [lastX, lastY] = [e.offsetX, e.offsetY];
-      });
+		canvas.addEventListener("mousemove", function(event) {
+			var x = event.clientX;
+			var y = event.clientY;
 
-      canvas.addEventListener("mousemove", draw);
+			drawFractal(x, y);
+		});
 
-      canvas.addEventListener("mouseup", () => drawing = false);
-      canvas.addEventListener("mouseout", () => drawing = false);
-    </script>
-  </body>
+		function drawFractal(x, y) {
+			// Здесь можно написать код для рисования фрактала
+			// Используйте координаты мыши для определения центра фрактала
+		}
+	</script>
+</body>
 </html>
