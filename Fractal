@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fractal Painter</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="script.js"></script>
+</head>
+<body>
+	<div id="welcome-screen">
+		<h1>Добро пожаловать в Fractal Painter!</h1>
+		<p>Здесь вы можете рисовать красивые фракталы и наслаждаться процессом.</p>
+		<button onclick="showDrawingWindow()">Начать рисование</button>
+	</div>
+	<div id="drawing-window">
+		<div id="fractal-type">
+			<h2>Выберите тип фрактала:</h2>
+			<select id="fractal-selector">
+				<option value="mandelbrot">Множество Мандельброта</option>
+				<option value="spiral">Живая спираль</option>
+				<option value="koch-curve">Кривая Коха</option>
+				<option value="koch-snowflake">Снежинка Коха</option>
+				<option value="serpinski-triangle">Треугольник Серпинского</option>
+				<option value="pythagoras-tree">Дерево Пифагора</option>
+			</select>
+		</div>
+		<div id="drawing-canvas">
+			<canvas id="canvas"></canvas>
+		</div>
+		<div id="drawing-controls">
+			<h2>Инструменты:</h2>
+			<div id="color-picker">
+				<h3>Цвет:</h3>
+				<input type="color" id="color-selector" value="#000000">
+			</div>
+			<div id="brush-size">
+				<h3>Размер кисти:</h3>
+				<input type="range" id="brush-size-selector" min="1" max="100" value="10">
+			</div>
+			<button onclick="clearCanvas()">Очистить холст</button>
+			<button onclick="saveImage()">Сохранить работу</button>
+		</div>
+	</div>
+	<div id="save-window">
+		<h2>Сохранить работу:</h2>
+		<label for="image-name">Название:</label>
+		<input type="text" id="image-name">
+		<label for="image-description">Описание:</label>
+		<textarea id="image-description"></textarea>
+		<button onclick="saveImage()">Сохранить</button>
+	</div>
+</body>
+</html>
