@@ -1,39 +1,28 @@
-// Создание ползунков
-let slider1, slider2;
-
-function setup() {
-  createCanvas(400, 400);
-  
-  // Создание ползунков
-  slider1 = createSlider(1, 10, 1, 1);
-  slider1.position(20, 20);
-  
-  slider2 = createSlider(0, 255, 100, 1);
-  slider2.position(20, 50);
-}
-
-function draw() {
-  background(220);
-  
-  // Получение значений ползунков
-  let iterations = slider1.value();
-  let colorValue = slider2.value();
-  
-  // Установка цвета заливки
-  fill(255, colorValue, 0);
-  
-  // Рисование фрактала
-  drawFractal(iterations, width/2, height-50, 100);
-}
-
-function drawFractal(iterations, x, y, size) {
-  if (iterations == 0) {
-    square(x - size/2, y - size/2, size);
-  } else {
-    let newSize = size / 2;
-    drawFractal(iterations-1, x-newSize, y-newSize, newSize);
-    drawFractal(iterations-1, x+newSize, y-newSize, newSize);
-    drawFractal(iterations-1, x+newSize, y+newSize, newSize);
-    drawFractal(iterations-1, x-newSize, y+newSize, newSize);
-  }
-}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Фракталы</title>
+    <meta charset="UTF-8">
+    <style>
+      #canvas {
+        width: 600px;
+        height: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Генератор фракталов</h1>
+    <p>Введите формулу:</p>
+    <input type="text" id="formula">
+    <button onclick="drawFractal()">Нарисовать</button>
+    <canvas id="canvas"></canvas>
+    <script>
+      function drawFractal() {
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        var formula = document.getElementById("formula").value;
+        // здесь должен быть код, который генерирует фрактал на основе введенной формулы
+      }
+    </script>
+  </body>
+</html>
