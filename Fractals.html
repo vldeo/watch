@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Рисование фракталов</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      /* Стили для холста */
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Рисование фракталов</h1>
+
+    <canvas id="canvas"></canvas> <!-- Холст для рисования -->
+
+    <script>
+      // Код для рисования фракталов
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+
+      function drawFractal(x, y, size) {
+        if (size < 1) {
+          return;
+        }
+
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x + size, y);
+        ctx.lineTo(x + size, y + size);
+        ctx.lineTo(x, y + size);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+
+        const newSize = size / 2;
+
+        drawFractal(x, y, newSize);
+        drawFractal(x + newSize, y, newSize);
+        drawFractal(x + newSize, y + newSize, newSize);
+        drawFractal(x, y + newSize, newSize);
+      }
+
+      drawFractal(100, 100, 256);
+    </script>
+  </body>
+</html>
