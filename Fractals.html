@@ -1,83 +1,68 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>BINANCE - Зарегистрируйтесь сегодня!</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style>
-		body {
-			background-color: #1c1c1e;
-			color: #fff;
-			font-family: Arial, sans-serif;
-			margin: 0;
-			padding: 0;
-		}
-		
-		header {
-			background-color: #f7931a;
-			padding: 10px;
-			text-align: center;
-		}
-		
-		h1 {
-			font-size: 3em;
-			margin: 0;
-		}
-		
-		section {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			height: calc(100vh - 80px);
-		}
-		
-		video {
-			width: 80%;
-			height: auto;
-			margin: 20px 0;
-		}
-		
-		.banner {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			margin: 20px 0;
-		}
-		
-		.banner a {
-			display: block;
-			margin: 0 10px;
-			padding: 10px;
-			background-color: #f7931a;
-			color: #fff;
-			border-radius: 5px;
-			text-decoration: none;
-			font-size: 1.2em;
-			transition: all 0.3s ease;
-		}
-		
-		.banner a:hover {
-			background-color: #fff;
-			color: #f7931a;
-			box-shadow: 0 0 10px #f7931a;
-		}
-	</style>
-</head>
-<body>
-	<header>
-		<h1>BINANCE - Зарегистрируйтесь сегодня!</h1>
-	</header>
-	<section>
-		<video src="https://youtube.com/shorts/obnzRHS6qxE?feature=share" controls></video>
-		<div class="banner">
-			<a href="https://accounts.binance.com/register?ref=522636968">
-				<img src="shareshare_2023-04-28_17:10:09|839.jpeg_2023-04-28_17:10:092023-04-28_17:10:09|845.jpeg" alt="Регистрация на BINANCE">
-			</a>
-			<a href="https://accounts.binance.com/register?ref=522636968">
-				<img src="shareshare_2023-04-28_17:08:57|759.jpeg_2023-04-28_17:08:572023-04-28_17:08:57|792.jpeg" alt="Регистрация на BINANCE">
-			</a>
-		</div>
-	</section>
-</body>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Binance</title>
+      <style>
+         body {
+         background-color: #161B22;
+         color: #fff;
+         font-family: Arial, sans-serif;
+         }
+         .container {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         }
+         .video {
+         margin: 2rem;
+         }
+         .banner {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         background-color: #F7931A;
+         color: #fff;
+         padding: 1rem;
+         margin: 2rem;
+         border-radius: 0.5rem;
+         box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5);
+         text-align: center;
+         }
+         .banner button {
+         background-color: #fff;
+         color: #161B22;
+         padding: 1rem 2rem;
+         border: none;
+         border-radius: 0.5rem;
+         font-size: 1.2rem;
+         cursor: pointer;
+         margin: 0.5rem;
+         transition: background-color 0.2s ease;
+         }
+         .banner button:hover {
+         background-color: #161B22;
+         color: #fff;
+         }
+         .banner img {
+         max-width: 100%;
+         height: auto;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <div class="video">
+            <iframe width="560" height="315" src="https://youtube.com/embed/obnzRHS6qxE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+         </div>
+         <div class="banner">
+            <button onclick="location.href='https://binance.com'">Go to Binance</button>
+            <img src="shareshare_2023-04-28_17:10:09|839.jpeg_2023-04-28_17:10:092023-04-28_17:10:09|845.jpeg" alt="register now" onclick="location.href='https://accounts.binance.com/register?ref=522636968'">
+            <img src="shareshare_2023-04-28_17:08:57|759.jpeg_2023-04-28_17:08:572023-04-28_17:08:57|792.jpeg" alt="register now" onclick="location.href='https://accounts.binance.com/register?ref=522636968'">
+         </div>
+      </div>
+   </body>
 </html>
