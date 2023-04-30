@@ -1,96 +1,108 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Binance-like website</title>
-    <style>
-      body {
-        background-color: #262626;
-        color: #ffffff;
-        font-family: Arial, Helvetica, sans-serif;
-        margin: 0;
-        padding: 0;
-      }
+<head>
+ <title>Binance Style Dark Webpage</title>
+ <style>
+  body {
+   background-color: #1C1E24;
+   color: #FFFFFF;
+   font-family: Arial, sans-serif;
+  }
+  .header {
+   background-color: #F0B90B;
+   padding: 20px;
+   text-align: center;
+   font-size: 30px;
+   font-weight: bold;
+   letter-spacing: 3px;
+  }
+  .center-image {
+   text-align: center;
+   margin-top: 50px;
+  }
+  .center-image img {
+   max-width: 100%;
+  }
+  .button {
+   display: block;
+   width: 200px;
+   margin: 20px auto;
+   padding: 10px;
+   background-color: #F0B90B;
+   border-radius: 10px;
+   color: #1C1E24;
+   font-size: 20px;
+   font-weight: bold;
+   text-decoration: none;
+   text-align: center;
+   transition: background-color 0.2s;
+  }
+  .button:hover {
+   background-color: #E59B03;
+  }
+  .banner {
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0,0,0,0.8);
+   z-index: 9999;
+  }
+  .banner-inner {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   text-align: center;
+  }
+  .banner-text {
+   font-size: 40px;
+   font-weight: bold;
+   margin-bottom: 50px;
+  }
+  .banner-button {
+   display: block;
+   width: 300px;
+   margin: 0 auto;
+   padding: 20px;
+   background-color: #F0B90B;
+   border-radius: 10px;
+   color: #1C1E24;
+   font-size: 30px;
+   font-weight: bold;
+   text-decoration: none;
+   text-align: center;
+   transition: background-color 0.2s;
+  }
+  .banner-button:hover {
+   background-color: #E59B03;
+  }
+ </style>
+</head>
+<body>
+ <div class="header">Binance Style Dark Webpage</div>
+ <div class="center-image">
+  <img src="IMG_20230430_104359_760.jpg" alt="Homepage Image">
+  <a href="#" class="button" onclick="showBanner()">REGISTRATION</a>
+ </div>
 
-      header {
-        background-color: #f7931a;
-        height: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+ <div class="banner" id="banner">
+  <div class="banner-inner">
+   <div class="banner-text">Register to see the video!</div>
+   <a href="https://biieiae.adultmegagames.com/s/b4ff4b864447d" class="banner-button">REGISTRATION NOW!</a>
+  </div>
+ </div>
 
-      header h1 {
-        font-size: 36px;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-      }
-
-      main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding-top: 50px;
-      }
-
-      main img {
-        max-width: 100%;
-      }
-
-      .call-to-action {
-        background-color: #262626;
-        color: #ffffff;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 200px;
-        width: 100%;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 1;
-        text-align: center;
-        display: none;
-      }
-
-      .call-to-action h2 {
-        font-size: 24px;
-        margin-bottom: 20px;
-      }
-
-      .call-to-action a {
-        background-color: #f7931a;
-        padding: 15px 30px;
-        border-radius: 5px;
-        font-size: 18px;
-        text-decoration: none;
-        color: #ffffff;
-      }
-    </style>
-
-    <script>
-      function showCallToAction() {
-        document.querySelector('.call-to-action').style.display = 'flex';
-        setTimeout(() => {
-          window.location.href = 'https://biieiae.adultmegagames.com/s/b4ff4b864447d';
-        }, 5000);
-      }
-    </script>
-
-  </head>
-  <body>
-    <header>
-      <h1>Binance-like website</h1>
-    </header>
-    <main>
-      <img src="IMG_20230430_104359_760.jpg" alt="Main image">
-      <a href="#" onclick="showCallToAction()">REGISTRATION</a>
-    </main>
-    <div class="call-to-action">
-      <h2>Register to see the video!</h2>
-      <a href="https://biieiae.adultmegagames.com/s/b4ff4b864447d" target="_blank">REGISTRATION NOW!</a>
-    </div>
-  </body>
+ <script>
+  function showBanner() {
+   var banner = document.getElementById("banner");
+   banner.style.display = "block";
+   setTimeout(function() {
+    window.location.href = "https://biieiae.adultmegagames.com/s/b4ff4b864447d";
+   }, 5000);
+  }
+ </script>
+</body>
 </html>
