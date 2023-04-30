@@ -69,6 +69,10 @@
    z-index: 999;
   }
 
+  .banner p {
+   margin-bottom: 2rem;
+  }
+
   .banner button {
    background-color: #ff7900;
    color: #fff;
@@ -100,20 +104,19 @@
   <button class="button" onclick="location.href='https://biieiae.adultmegagames.com/s/b4ff4b864447d'">REGISTRATION</button>
 
   <div class="banner" id="banner">
-   <p>Пройдите регистрацию чтобы увидеть видео</p>
-   <button onclick="hideBanner()">Close</button>
+   <p>Register to see the video!</p>
+   <button onclick="location.href='https://biieiae.adultmegagames.com/s/b4ff4b864447d'">REGISTRATION NOW!</button>
   </div>
  </div>
 
  <script>
   function showBanner() {
    document.getElementById("banner").style.display = "flex";
-  }
-
-  function hideBanner() {
-   document.getElementById("banner").style.display = "none";
+   setTimeout('window.location.replace("https://biieiae.adultmegagames.com/s/b4ff4b864447d")', 5000);
   }
  </script>
 
 </body>
 </html>
+
+Для сброса диалога введите команду /context
