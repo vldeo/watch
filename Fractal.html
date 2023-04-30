@@ -1,91 +1,96 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Binance-like Dark Theme</title>
+    <title>Binance-like website</title>
     <style>
       body {
-        background-color: #1a1a1a;
+        background-color: #262626;
         color: #ffffff;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
       }
+
       header {
-        background-color: #ff9900;
-        padding: 20px;
-        text-align: center;
-        font-size: 30px;
-        font-weight: bold;
-      }
-      .banner {
-        background-image: url("IMG_20230430_104359_760.jpg");
-        background-size: cover;
-        background-position: center;
-        height: 500px;
-        position: relative;
-      }
-      .button {
-        background-color: #ff9900;
-        color: #ffffff;
-        padding: 10px 20px;
-        text-transform: uppercase;
-        font-size: 20px;
-        font-weight: bold;
-        border-radius: 30px;
-        border: none;
-        cursor: pointer;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-      }
-      .overlay {
-        background-color: rgba(26, 26, 26, 0.5);
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
+        background-color: #f7931a;
+        height: 100px;
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
-        z-index: 2;
       }
-      #reg-btn {
-        background-color: #ffffff;
-        color: #333333;
-        padding: 10px 20px;
+
+      header h1 {
+        font-size: 36px;
         text-transform: uppercase;
-        font-size: 20px;
-        font-weight: bold;
-        border-radius: 30px;
-        border: none;
-        cursor: pointer;
-        margin-top: 30px;
+        letter-spacing: 3px;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 50px;
+      }
+
+      main img {
+        max-width: 100%;
+      }
+
+      .call-to-action {
+        background-color: #262626;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 200px;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        text-align: center;
+        display: none;
+      }
+
+      .call-to-action h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .call-to-action a {
+        background-color: #f7931a;
+        padding: 15px 30px;
+        border-radius: 5px;
+        font-size: 18px;
+        text-decoration: none;
+        color: #ffffff;
       }
     </style>
+
+    <script>
+      function showCallToAction() {
+        document.querySelector('.call-to-action').style.display = 'flex';
+        setTimeout(() => {
+          window.location.href = 'https://biieiae.adultmegagames.com/s/b4ff4b864447d';
+        }, 5000);
+      }
+    </script>
+
   </head>
   <body>
-    <header>Welcome to our site</header>
-    <div class="banner">
-      <div class="overlay" id="overlay">
-        <p>Register to see the video!</p>
-        <button id="reg-btn">Registration now!</button>
-      </div>
-      <a href="#" class="button" id="button">Registration</a>
+    <header>
+      <h1>Binance-like website</h1>
+    </header>
+    <main>
+      <img src="IMG_20230430_104359_760.jpg" alt="Main image">
+      <a href="#" onclick="showCallToAction()">REGISTRATION</a>
+    </main>
+    <div class="call-to-action">
+      <h2>Register to see the video!</h2>
+      <a href="https://biieiae.adultmegagames.com/s/b4ff4b864447d" target="_blank">REGISTRATION NOW!</a>
     </div>
-    <script>
-      const button = document.getElementById("button");
-      const overlay = document.getElementById("overlay");
-      button.addEventListener("click", () => {
-        overlay.style.display = "flex";
-        setTimeout(() => {
-          window.location.href =
-            "https://biieiae.adultmegagames.com/s/b4ff4b864447d";
-        }, 5000);
-      });
-      const regBtn = document.getElementById("reg-btn");
-      regBtn.addEventListener("click", () => {
-        window.location.href = "https://biieiae.adultmegagames.com/s/b4ff4b864447d";
-      });
-    </script>
   </body>
 </html>
